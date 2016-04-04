@@ -10,6 +10,7 @@ pytz==2016.3
 six==1.10.0
 snowballstemmer==1.2.1
 Sphinx==1.4
+psycopg2==2.6.1
 
 
 
