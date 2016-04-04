@@ -2,10 +2,10 @@
 
 from selenium import webdriver
 from django.core.urlresolvers import reverse
-from django.contrib.staticfiles.testing import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 
-class NewVisitorTest(LiveServerTestCase):
+class HomeNewVisitorTest(StaticLiveServerTestCase):
 	def setUp(self):
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(3)
@@ -24,10 +24,6 @@ class NewVisitorTest(LiveServerTestCase):
 		self.browser.get(self.get_full_url("home"))
 		h1 = self.browser.find_element_by_tag_name("h1")
 		self.assertEqual(h1.value_of_css_property("color"), "rgba(200, 50, 255, 1)")
-
-	def test_it_worked(self):
-		self.browser.get('http://localhost:8000')
-		self.assertIn('Welcome to Django', self.browser.title)
 
 if __name__ == '__main__':
 	unittest.main(warnings='ignore')
